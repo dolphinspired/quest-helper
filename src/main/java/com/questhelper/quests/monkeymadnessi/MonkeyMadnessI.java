@@ -69,9 +69,9 @@ public class MonkeyMadnessI extends BasicQuestHelper
 	//Items Required
 	ItemRequirement monkeyBonesOrCorpse, ballOfWool, goldBar, royalSeal, narnodesOrders, monkeyDentures, mould, monkeyDenturesHighlight, mouldHighlight, barHighlight, enchantedBar,
 		enchantedBarHighlight, ballOfWoolHighlight, unstrungAmuletHighlight, amulet, banana5, amuletWorn, talisman, talismanHighlight, karamjanGreegree, monkeyBonesOrCorpseHighlight,
-		monkey, karamjanGreegreeEquipped, sigilEquipped;
+		monkey, karamjanGreegreeEquipped, sigilEquipped, bananaReq;
 
-	//Items Recommendded
+	//Items Recommended
 	ItemRequirement combatGear, antipoison;
 
 	Requirement inStronghold, inFloor1, inFloor2, inFloor3, inKaramja, talkedToCaranock, reportedBackToNarnode, inHangar, startedPuzzle, solvedPuzzle,
@@ -247,7 +247,9 @@ public class MonkeyMadnessI extends BasicQuestHelper
 		ballOfWoolHighlight = new ItemRequirement("Ball of wool", ItemID.BALL_OF_WOOL);
 		ballOfWoolHighlight.setHighlightInInventory(true);
 
-		monkeyBonesOrCorpse = new ItemRequirement("Monkey bones or corpse", ItemID.MONKEY_BONES_3183);
+		bananaReq = new ItemRequirement("Banana (obtainable during quest)", ItemID.BANANA, 5);
+
+		monkeyBonesOrCorpse = new ItemRequirement("Monkey bones or corpse", ItemID.MONKEY_BONES);
 		monkeyBonesOrCorpse.addAlternates(ItemID.MONKEY_CORPSE);
 
 		monkeyBonesOrCorpseHighlight = new ItemRequirement("Monkey bones or corpse", ItemID.MONKEY_BONES);
@@ -661,7 +663,8 @@ public class MonkeyMadnessI extends BasicQuestHelper
 		leaveDungeonWithGreeGree = new DetailedQuestStep(this, "If you want to make a zombie, ninja and gorilla greegree talk to and give Zooknock the bones/talismans. Once you're done, teleport away for the next step.");
 		leaveDungeonWithGreeGree.addDialogSteps("Can you make another monkey talisman?", "Yes");
 
-		talkToMinder = new NpcStep(this, NpcID.MONKEY_MINDER, new WorldPoint(2608, 3278, 0), "Talk to the Monkey Minder in Ardougne Zoo whilst wielding the karmjan monkey greegree.", karamjanGreegreeEquipped, amuletWorn);
+		talkToMinder = new NpcStep(this, NpcID.MONKEY_MINDER, new WorldPoint(2608, 3278, 0), "Talk to the Monkey " +
+			"Minder in Ardougne Zoo whilst wielding the karamjan monkey greegree.", karamjanGreegreeEquipped, amuletWorn);
 		talkToMonkeyAtZoo = new NpcStep(this, NpcID.MONKEY_5279, new WorldPoint(2603, 3278, 0), "Talk to a monkey in the pen.", true);
 		talkToMinderAgain = new NpcStep(this, NpcID.MONKEY_MINDER, new WorldPoint(2608, 3278, 0), "UNEQUIP the gree gree, then talk to the Monkey Minder again to leave.");
 
@@ -703,7 +706,7 @@ public class MonkeyMadnessI extends BasicQuestHelper
 	@Override
 	public List<ItemRequirement> getItemRequirements()
 	{
-		return Arrays.asList(goldBar, ballOfWool, monkeyBonesOrCorpse);
+		return Arrays.asList(goldBar, ballOfWool, bananaReq, monkeyBonesOrCorpse);
 	}
 
 	@Override

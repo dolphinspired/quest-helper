@@ -384,7 +384,8 @@ public class DesertTreasure extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToArchaeologist = new NpcStep(this, NpcID.ARCHAEOLOGIST, new WorldPoint(3177, 3043, 0), "Talk to the Archaeologist in the Bedabin Camp.");
+		talkToArchaeologist = new NpcStep(this, NpcID.ARCHAEOLOGIST, new WorldPoint(3177, 3043, 0), "Talk to the " +
+			"Archaeologist in the Bedabin Camp. You can use the flying carpet service from the Shanty Pass to get here.");
 		talkToArchaeologist.addDialogStep("Do you have any quests?");
 		talkToArchaeologist.addDialogStep("Yes, I'll help you.");
 
@@ -408,7 +409,9 @@ public class DesertTreasure extends BasicQuestHelper
 		talkToEblis.addDialogStep("Tell me of The four diamonds of Azzanadra");
 		talkToEblis.addDialogStep("Yes");
 
-		bringItemsToEblis = new GiveItems(this, NpcID.EBLIS, new WorldPoint(3184, 2989, 0), "Use the items on Eblis in the east of the Bandit Camp.", ashes, bloodRune, bones, charcoal, moltenGlass6, magicLogs12, steelBars6);
+		bringItemsToEblis = new GiveItems(this, NpcID.EBLIS, new WorldPoint(3184, 2989, 0), "Use the items on Eblis " +
+			"in the east of the Bandit Camp. You will need to make two trips from a bank.", ashes, bloodRune, bones,
+			charcoal, moltenGlass6, magicLogs12, steelBars6);
 
 		talkToEblisAtMirrors = new NpcStep(this, NpcID.EBLIS_689, new WorldPoint(3214, 2954, 0), "Talk to Eblis at the mirrors south east of the Bandit Camp.");
 
@@ -460,8 +463,8 @@ public class DesertTreasure extends BasicQuestHelper
 
 		waitForDamis = new DetailedQuestStep(this, new WorldPoint(2745, 5115, 0), "Go to the far eastern room of the dungeon, and wait for Damis to spawn.");
 
-		killDamis1 = new NpcStep(this, NpcID.DAMIS, new WorldPoint(2745, 5115, 0), "Kill both phases of Damis. He can be safe spotted.");
-		killDamis2 = new NpcStep(this, NpcID.DAMIS_683, new WorldPoint(2745, 5115, 0), "Kill both phases of Damis. He can be safe spotted.");
+		killDamis1 = new NpcStep(this, NpcID.DAMIS, new WorldPoint(2745, 5115, 0), "Kill both phases of Damis. You can savespot him by attacking a bat and keeping the bat between the two of you.");
+		killDamis2 = new NpcStep(this, NpcID.DAMIS_683, new WorldPoint(2745, 5115, 0), "Kill both phases of Damis. You can savespot him by attacking a bat and keeping the bat between the two of you.");
 		killDamis1.addSubSteps(killDamis2);
 
 		enterSewer = new ObjectStep(this, ObjectID.TRAPDOOR_6434, new WorldPoint(3084, 3272, 0), "Bring a silver bar to Ruantun in Draynor Sewer.", silverBar);
